@@ -6,6 +6,8 @@ import android.app.Activity;
 
 import android.view.MenuItem;
 
+import catrobat.androidtutorial.clock.ClockContent;
+
 
 /**
  * An activity representing a single Clock detail screen. This
@@ -22,7 +24,7 @@ public class ClockDetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clock_detail);
-
+        this.setTitle(ClockContent.ITEM_MAP.get(getIntent().getStringExtra(ClockDetailFragment.ARG_ITEM_ID)).content); //NEW
         // Show the Up button in the action bar.
         getActionBar().setDisplayHomeAsUpEnabled(true);
 

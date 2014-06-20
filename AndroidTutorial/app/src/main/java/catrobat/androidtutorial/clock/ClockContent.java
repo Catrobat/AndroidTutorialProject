@@ -1,4 +1,4 @@
-package catrobat.androidtutorial.dummy;
+package catrobat.androidtutorial.clock;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,26 +11,26 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class DummyContent {
+public class ClockContent {
 
     /**
      * An array of sample (dummy) items.
      */
-    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static List<ClockItem> ITEMS = new ArrayList<ClockItem>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static Map<String, ClockItem> ITEM_MAP = new HashMap<String, ClockItem>();
 
     static {
-        // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
+        // NEW: CHANGED IDs; IDs are Strings!!
+        addItem(new ClockItem("0", "Stopwatch"));
+        addItem(new ClockItem("1", "Timer"));
+        addItem(new ClockItem("2", "World Clock"));
     }
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(ClockItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
@@ -38,11 +38,11 @@ public class DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class DummyItem {
+    public static class ClockItem {
         public String id;
         public String content;
 
-        public DummyItem(String id, String content) {
+        public ClockItem(String id, String content) {
             this.id = id;
             this.content = content;
         }
