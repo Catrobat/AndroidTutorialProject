@@ -40,6 +40,7 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
     private Button buttonStop;
     private Button buttonReset;
     private Button buttonNext;
+    private Button buttonDelete;
 
 
     private ArrayList<Button> buttonList;
@@ -86,7 +87,7 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
         buttonStop = (Button) rootView.findViewById(R.id.buttonStop);
         buttonReset = (Button) rootView.findViewById(R.id.buttonReset);
         buttonNext = (Button) rootView.findViewById(R.id.buttonNext);
-
+        buttonDelete = (Button) rootView.findViewById(R.id.buttonDelete);
 
         this.buttonList = ButtonNumberTranslation.generateNumberButtons(0, 9, rootView);
 
@@ -102,6 +103,8 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
         buttonStop.setOnClickListener(this);
         buttonReset.setOnClickListener(this);
         buttonNext.setOnClickListener(this);
+        buttonDelete.setOnClickListener(this);
+
         this.selectedFieldID = R.id.textHours;
 
         TextViewContentModification.setColorOfTextView(this.textViews, this.selectedFieldID);
@@ -123,11 +126,15 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
                 case R.id.buttonNext:
                     this.selectedFieldID = TextViewContentModification.getNextTextView(selectedFieldID);
                     break;
-                case R.id.buttonReset:
+                case R.id.buttonDelete:
+                    TextView actualTextView = (TextView) v.getRootView().findViewById(this.selectedFieldID);
+                    actualTextView.setText("00");
                     break;
                 case R.id.buttonStop:
                     break;
                 case R.id.buttonStart:
+                    break;
+                case R.id.buttonReset:
                     break;
             }
         }
