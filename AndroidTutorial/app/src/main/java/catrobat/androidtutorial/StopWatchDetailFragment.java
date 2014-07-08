@@ -1,12 +1,10 @@
 package catrobat.androidtutorial;
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
 
 import catrobat.androidtutorial.clock.ClockContent;
 
@@ -16,7 +14,7 @@ import catrobat.androidtutorial.clock.ClockContent;
  * in two-pane mode (on tablets) or a {@link ClockDetailActivity}
  * on handsets.
  */
-public class ClockDetailFragment extends Fragment {
+public class StopWatchDetailFragment extends Fragment {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -32,7 +30,7 @@ public class ClockDetailFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ClockDetailFragment() {
+    public StopWatchDetailFragment() {
     }
 
     @Override
@@ -50,7 +48,7 @@ public class ClockDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_clock_detail, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_stop_watch_detail, container, false);
 
         return rootView;
     }

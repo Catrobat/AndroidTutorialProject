@@ -1,10 +1,13 @@
 package catrobat.androidtutorial;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import catrobat.androidtutorial.clock.ClockContent;
 
@@ -23,7 +26,7 @@ public class ClockDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_timer_detail);
+        setContentView(R.layout.activity_clock_detail);
         this.setTitle(ClockContent.ITEM_MAP.get(getIntent().getStringExtra(ClockDetailFragment.ARG_ITEM_ID)).content); //NEW
         // Show the Up button in the action bar.
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,11 +44,28 @@ public class ClockDetailActivity extends Activity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
+
             arguments.putString(ClockDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(ClockDetailFragment.ARG_ITEM_ID));
-            ClockDetailFragment fragment = new ClockDetailFragment();
+            // THE FOLLOWING LINES ARE NEW:
+            Fragment fragment;
+            String fragId = ClockContent.ITEM_MAP.get(getIntent().getStringExtra(ClockDetailFragment.ARG_ITEM_ID)).id;
+            if(fragId.equals("0")) {
+                fragment = new StopWatchDetailFragment();
+            }
+            else if(fragId.equals("1")){
+                fragment = new TimerDetailFragment();
+            }
+            else{
+                fragment = new ClockDetailFragment();
+            }
+
+            // END NEW
+
             fragment.setArguments(arguments);
-            getFragmentManager().beginTransaction().add(R.id.fragment_timer_layout, fragment).commit();
+            getFragmentManager().beginTransaction()
+                    .add(R.id.clock_detail_container, fragment)
+                    .commit();
         }
     }
 
