@@ -23,7 +23,7 @@ public class ClockDetailActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_clock_detail);
+        setContentView(R.layout.fragment_timer_detail);
         this.setTitle(ClockContent.ITEM_MAP.get(getIntent().getStringExtra(ClockDetailFragment.ARG_ITEM_ID)).content); //NEW
         // Show the Up button in the action bar.
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,9 +45,7 @@ public class ClockDetailActivity extends Activity {
                     getIntent().getStringExtra(ClockDetailFragment.ARG_ITEM_ID));
             ClockDetailFragment fragment = new ClockDetailFragment();
             fragment.setArguments(arguments);
-            getFragmentManager().beginTransaction()
-                    .add(R.id.clock_detail_container, fragment)
-                    .commit();
+            getFragmentManager().beginTransaction().add(R.id.fragment_timer_layout, fragment).commit();
         }
     }
 

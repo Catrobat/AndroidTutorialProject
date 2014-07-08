@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_timer_layout">
+
+    <Button
+        android:layout_width="300dip"
+        android:layout_height="50dip"
+        android:text="Start"
+        android:id="@+id/buttonStart"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="Next"
+        android:id="@+id/buttonNext"
+        android:layout_marginBottom="32dp"
+        android:layout_above="@+id/buttonStart"
+        android:layout_toRightOf="@+id/buttonZero" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="0"
+        android:id="@+id/buttonZero"
+        android:layout_alignTop="@+id/buttonNext"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="Del"
+        android:id="@+id/buttonDelete"
+        android:layout_alignTop="@+id/buttonZero"
+        android:layout_toLeftOf="@+id/buttonZero" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="7"
+        android:id="@+id/buttonSeven"
+        android:layout_above="@+id/buttonDelete"
+        android:layout_toLeftOf="@+id/buttonNine" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="9"
+        android:id="@+id/buttonEight"
+        android:layout_above="@+id/buttonNext"
+        android:layout_alignStart="@+id/buttonNext" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="8"
+        android:id="@+id/buttonNine"
+        android:layout_above="@+id/buttonZero"
+        android:layout_toRightOf="@+id/buttonDelete" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="6"
+        android:id="@+id/buttonSix"
+        android:layout_above="@+id/buttonEight"
+        android:layout_alignEnd="@+id/buttonEight" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="5"
+        android:id="@+id/buttonFive"
+        android:layout_above="@+id/buttonSeven"
+        android:layout_toRightOf="@+id/buttonSeven" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="4"
+        android:id="@+id/buttonFour"
+        android:layout_above="@+id/buttonSeven"
+        android:layout_alignStart="@+id/buttonSeven" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="3"
+        android:id="@+id/buttonThree"
+        android:layout_above="@+id/buttonSix"
+        android:layout_alignEnd="@+id/buttonSix" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="2"
+        android:id="@+id/buttonTwo"
+        android:layout_above="@+id/buttonFive"
+        android:layout_toRightOf="@+id/buttonFour" />
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:text="1"
+        android:id="@+id/buttonOne"
+        android:layout_above="@+id/buttonFour"
+        android:layout_toLeftOf="@+id/buttonTwo" />
+
+    <TextView
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textHours"
+        android:text="00"
+        android:layout_above="@+id/buttonTwo"
+        android:layout_toLeftOf="@+id/textMinutes"
+        android:layout_marginBottom="47dp" />
+
+    <TextView
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textMinutes"
+        android:text="00"
+        android:layout_alignTop="@+id/textHours"
+        android:layout_toLeftOf="@+id/textSeconds" />
+
+    <TextView
+        android:layout_width="80dip"
+        android:layout_height="60dip"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textSeconds"
+        android:text="00"
+        android:layout_alignTop="@+id/textMinutes"
+        android:layout_alignStart="@+id/buttonThree" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Hours"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/textHours"
+        android:layout_alignStart="@+id/textHours" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Minutes"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_toRightOf="@+id/textHours" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Seconds"
+        android:id="@+id/textView6"
+        android:layout_above="@+id/textSeconds"
+        android:layout_alignStart="@+id/textSeconds" />
+
+    <Button
+        android:layout_width="100dip"
+        android:layout_height="60dip"
+        android:text="Stop"
+        android:id="@+id/buttonStop"
+        android:layout_alignBottom="@+id/buttonZero"
+        android:layout_alignStart="@+id/buttonDelete"
+        android:visibility="invisible"/>
+
+    <Button
+        android:layout_width="100dip"
+        android:layout_height="60dip"
+        android:text="Reset"
+        android:id="@+id/buttonReset"
+        android:layout_alignBottom="@+id/buttonNext"
+        android:layout_alignEnd="@+id/buttonNext"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
