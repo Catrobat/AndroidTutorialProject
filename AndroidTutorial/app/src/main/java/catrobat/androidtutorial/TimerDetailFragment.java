@@ -135,6 +135,11 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
                 case R.id.buttonStart:
                     break;
                 case R.id.buttonReset:
+                    for(TextView view : this.textViews) {
+                        view.setText("00");
+                    }
+
+                    this.selectedFieldID = R.id.textHours;
                     break;
             }
         }
