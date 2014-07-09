@@ -35,6 +35,7 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
 //    private Button buttonNine;
 
     int selectedFieldID;
+    private final static String buttonExtension = "button";
 
     private Button buttonStart;
     private Button buttonStop;
@@ -80,7 +81,7 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_timer_detail, container, false);
 
         buttonStart = (Button) rootView.findViewById(R.id.buttonStart);
@@ -89,13 +90,14 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
         buttonNext = (Button) rootView.findViewById(R.id.buttonNext);
         buttonDelete = (Button) rootView.findViewById(R.id.buttonDelete);
 
-        this.buttonList = ButtonNumberTranslation.generateNumberButtons(0, 9, rootView);
+
+        this.buttonList = this.generateNumberButtons(0, 9, rootView);
 
         textViews.add((TextView) rootView.findViewById(R.id.textHours));
         textViews.add((TextView) rootView.findViewById(R.id.textMinutes));
         textViews.add((TextView) rootView.findViewById(R.id.textSeconds));
 
-        for(Button b : buttonList) {
+        for (Button b : buttonList) {
             b.setOnClickListener(this);
         }
 
@@ -111,18 +113,29 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
         return rootView;
     }
 
+    public ArrayList<Button> generateNumberButtons(int startNumber, int endNumber, View rootView) {
+        ArrayList<Button> buttonList = new ArrayList<Button>();
+
+        for (int i = startNumber; i <= endNumber; i++) {
+            int id = rootView.getResources().getIdentifier(buttonExtension + ButtonNumberTranslation.Numbers.values()[i].toString(), "id", R.class.getPackage().getName());
+            buttonList.add(((Button) rootView.findViewById(id)));
+        }
+
+        return buttonList;
+    }
+
     @Override
     public void onClick(View v) {
-        if(ButtonNumberTranslation.isButtonNumber(getResources().getResourceName(v.getId()))) {
+        if (ButtonNumberTranslation.isStringNumber(getResources().getResourceName(v.getId()))) {
             TextView actualTextView = (TextView) v.getRootView().findViewById(this.selectedFieldID);
 
             String newText = TextViewContentModification.setTextForTextView(((Button) v).getText().toString(), actualTextView.getText().toString());
-            newText = TextViewContentModification.validateText(actualTextView, newText);
-
-            actualTextView.setText(newText);
-        }
-        else {
-            switch(v.getId()){
+            if (this.selectedFieldID == R.id.textHours)
+                actualTextView.setText(newText);
+            else
+                actualTextView.setText(TextViewContentModification.validateText(newText));
+        } else {
+            switch (v.getId()) {
                 case R.id.buttonNext:
                     this.selectedFieldID = TextViewContentModification.getNextTextView(selectedFieldID);
                     break;
@@ -135,7 +148,7 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
                 case R.id.buttonStart:
                     break;
                 case R.id.buttonReset:
-                    for(TextView view : this.textViews) {
+                    for (TextView view : this.textViews) {
                         view.setText("00");
                     }
 

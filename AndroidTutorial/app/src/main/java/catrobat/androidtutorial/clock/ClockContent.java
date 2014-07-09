@@ -35,9 +35,6 @@ public class ClockContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    /**
-     * A dummy item representing a piece of content.
-     */
     public static class ClockItem {
         public String id;
         public String content;

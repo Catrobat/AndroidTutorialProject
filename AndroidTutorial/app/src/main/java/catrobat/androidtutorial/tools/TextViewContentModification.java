@@ -40,6 +40,7 @@ public class TextViewContentModification {
         return 0;
     }
 
+    //TODO UI TEST
     public static void setColorOfTextView(ArrayList<TextView> views, int selectedViewID) {
         for(TextView view : views) {
             if(view.getId() == selectedViewID) {
@@ -50,10 +51,7 @@ public class TextViewContentModification {
         }
     }
 
-    public static String validateText(TextView textView, String newText) {
-        if(textView.getId() == R.id.textHours)
-            return newText;
-
+    public static String validateText(String newText) {
         int numberToValidate = Integer.parseInt(newText);
 
         if(numberToValidate > 59) {

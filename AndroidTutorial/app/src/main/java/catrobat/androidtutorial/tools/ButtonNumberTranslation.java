@@ -14,7 +14,7 @@ public class ButtonNumberTranslation {
 
     private final static String buttonExtension = "button";
 
-    private static enum Numbers {
+    public static enum Numbers {
         Zero,
         One,
         Two,
@@ -29,19 +29,12 @@ public class ButtonNumberTranslation {
 
     private ButtonNumberTranslation() { }
 
-    public static ArrayList<Button> generateNumberButtons(int startNumber, int endNumber, View rootView) {
-        ArrayList<Button> buttonList = new ArrayList<Button>();
+    public static boolean isStringNumber(String buttonName) {
+        String helpString = buttonName;
 
-        for(int i = startNumber; i <= endNumber; i ++) {
-            int id = rootView.getResources().getIdentifier(buttonExtension + Numbers.values()[i].toString(), "id", R.class.getPackage().getName());
-                buttonList.add(((Button) rootView.findViewById(id)));
+        if(buttonName.contains(buttonExtension)) {
+            helpString = (buttonName.split(buttonExtension))[1];
         }
-
-        return buttonList;
-    }
-
-    public static boolean isButtonNumber(String buttonName) {
-        String helpString = (buttonName.split(buttonExtension))[1];
 
         try {
             Numbers.valueOf(helpString);
