@@ -27,7 +27,7 @@ public class ClockContent {
         // NEW: CHANGED IDs; IDs are Strings!!
         addItem(new ClockItem("0", "Stopwatch"));
         addItem(new ClockItem("1", "Timer"));
-        addItem(new ClockItem("2", "World Clock"));
+        addItem(new ClockItem("2", "Clock"));
     }
 
     private static void addItem(ClockItem item) {

@@ -5,6 +5,8 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AnalogClock;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 
@@ -44,6 +46,8 @@ public class ClockDetailFragment extends Fragment {
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
             mItem = ClockContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+
+
         }
     }
 
@@ -51,7 +55,8 @@ public class ClockDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_clock_detail, container, false);
-
+        AnalogClock analogClock = (AnalogClock) rootView.findViewById(R.id.analogClock);
+        TextClock textClock = (TextClock) rootView.findViewById(R.id.textClock);
         return rootView;
     }
 }
