@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ClockDetailActivity"
+            android:name=".ClockMainActivity"
             android:label="@string/title_clock_detail"
             android:parentActivityName=".ClockListActivity" >
             <meta-data

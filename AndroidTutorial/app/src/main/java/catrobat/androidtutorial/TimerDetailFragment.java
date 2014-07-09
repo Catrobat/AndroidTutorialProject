@@ -2,7 +2,6 @@ package catrobat.androidtutorial;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import catrobat.androidtutorial.tools.TextViewContentModification;
 /**
  * A fragment representing a single Clock detail screen.
  * This fragment is either contained in a {@link catrobat.androidtutorial.ClockListActivity}
- * in two-pane mode (on tablets) or a {@link catrobat.androidtutorial.ClockDetailActivity}
+ * in two-pane mode (on tablets) or a {@link ClockMainActivity}
  * on handsets.
  */
 public class TimerDetailFragment extends Fragment implements View.OnClickListener {
@@ -70,6 +69,7 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // Load the dummy content specified by the fragment
@@ -134,6 +134,7 @@ public class TimerDetailFragment extends Fragment implements View.OnClickListene
                 actualTextView.setText(newText);
             else
                 actualTextView.setText(TextViewContentModification.validateText(newText));
+
         } else {
             switch (v.getId()) {
                 case R.id.buttonNext:

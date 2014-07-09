@@ -21,7 +21,7 @@ import catrobat.androidtutorial.clock.ClockContent;
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link ClockDetailFragment}.
  */
-public class ClockDetailActivity extends Activity{
+public class ClockMainActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

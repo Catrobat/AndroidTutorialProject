@@ -11,7 +11,7 @@ import android.app.Activity;
  * An activity representing a list of ClockItems. This activity
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
- * lead to a {@link ClockDetailActivity} representing
+ * lead to a {@link ClockMainActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  * <p>
@@ -75,7 +75,7 @@ public class ClockListActivity extends Activity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Intent detailIntent = new Intent(this, ClockDetailActivity.class);
+            Intent detailIntent = new Intent(this, ClockMainActivity.class);
             detailIntent.putExtra(ClockDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AnalogClock;
 import android.widget.TextClock;
-import android.widget.TextView;
 
 
 import catrobat.androidtutorial.clock.ClockContent;
@@ -15,7 +14,7 @@ import catrobat.androidtutorial.clock.ClockContent;
 /**
  * A fragment representing a single Clock detail screen.
  * This fragment is either contained in a {@link ClockListActivity}
- * in two-pane mode (on tablets) or a {@link ClockDetailActivity}
+ * in two-pane mode (on tablets) or a {@link ClockMainActivity}
  * on handsets.
  */
 public class ClockDetailFragment extends Fragment {

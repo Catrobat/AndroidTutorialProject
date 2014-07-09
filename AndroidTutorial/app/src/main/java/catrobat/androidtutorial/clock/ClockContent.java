@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import catrobat.androidtutorial.R;
+
 /**
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.
@@ -38,10 +40,36 @@ public class ClockContent {
     public static class ClockItem {
         public String id;
         public String content;
+        private String[] timeString;
 
         public ClockItem(String id, String content) {
             this.id = id;
             this.content = content;
+            this.timeString = new String[] {"00", "00", "00"};
+        }
+
+        public void setTimeString(String timeString, int actTextField) {
+            switch (actTextField) {
+                case R.id.textHours:
+                    this.timeString[0] = timeString;
+                case R.id.textMinutes:
+                    this.timeString[1] = timeString;
+                case R.id.textSeconds:
+                    this.timeString[2] = timeString;
+            }
+        }
+
+        public String getTime(int textField) {
+            switch (textField) {
+                case R.id.textHours:
+                    return timeString[0];
+                case R.id.textMinutes:
+                    return timeString[1];
+                case R.id.textSeconds:
+                    return  timeString[2];
+            }
+
+            return "00";
         }
 
         @Override
