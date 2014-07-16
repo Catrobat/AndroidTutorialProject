@@ -66,16 +66,12 @@ public class Calculator extends Activity implements View.OnClickListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.calculator, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -134,12 +130,21 @@ public class Calculator extends Activity implements View.OnClickListener {
     }
 
     private void clearNumberView() {
-        firstNumber = Integer.valueOf(numberView.getText().toString());
+        String tempString = numberView.getText().toString();
+        if(!tempString.equals("")){
+            firstNumber = Integer.valueOf(tempString);
+        }
         numberView.setText("");
     }
 
     private void doEqual() {
-        int secondNumber = Integer.valueOf(numberView.getText().toString());
+        int secondNumber = 0;
+
+        String tempString = numberView.getText().toString();
+        if(!tempString.equals("")){
+            secondNumber = Integer.valueOf(tempString);
+        }
+
         int result = 0;
         switch(flag){
             case ADD:
@@ -166,5 +171,4 @@ public class Calculator extends Activity implements View.OnClickListener {
         firstNumber = 0;
         flag = OperationFlag.INIT;
     }
-
 }
