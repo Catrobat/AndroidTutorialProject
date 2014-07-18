@@ -105,6 +105,13 @@ public class CalculatorTest extends ActivityInstrumentationTestCase2<Calculator>
         waitAndAssertEquals("5");
     }
 
+    public void testClearButton(){
+        mySolo.clickOnButton("3");
+        mySolo.clickOnButton("C");
+
+        waitAndAssertEquals("0");
+    }
+
 
     private void waitAndAssertEquals(String assertion){
         TextView textView = (TextView) mySolo.getCurrentActivity().findViewById(R.id.textView);

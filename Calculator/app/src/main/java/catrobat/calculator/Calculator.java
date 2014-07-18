@@ -17,7 +17,7 @@ public class Calculator extends Activity implements View.OnClickListener {
         Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine
     };
 
-    public enum OperationFlag {
+    public enum State {
         ADD, SUB, MUL, DIV, INIT, NOP
     };
 
@@ -32,9 +32,7 @@ public class Calculator extends Activity implements View.OnClickListener {
 
     private TextView numberView;
 
-    private String recentNumber = "";
-
-    private OperationFlag flag = OperationFlag.INIT;
+    private State state = State.INIT;
     private int firstNumber = 0;
 
     @Override
@@ -98,31 +96,32 @@ public class Calculator extends Activity implements View.OnClickListener {
         switch (clickedButton.getId()) {
             case R.id.buttonPlus:
                 clearNumberView();
-                flag = OperationFlag.ADD;
+                state = State.ADD;
                 break;
             case R.id.buttonMinus:
                 clearNumberView();
-                flag = OperationFlag.SUB;
+                state = State.SUB;
                 break;
             case R.id.buttonMultiply:
                 clearNumberView();
-                flag = OperationFlag.MUL;
+                state = State.MUL;
                 break;
             case R.id.buttonDivide:
                 clearNumberView();
-                flag = OperationFlag.DIV;
+                state = State.DIV;
                 break;
             case R.id.buttonEqual:
                 doEqual();
+                state = State.INIT;
                 break;
             case R.id.buttonClear:
                 makeClear();
                 break;
             default:
-                recentNumber = numberView.getText().toString();
-                if (flag == OperationFlag.INIT) {
+                String recentNumber = numberView.getText().toString();
+                if (state == State.INIT) {
                     recentNumber = "";
-                    flag = OperationFlag.NOP;
+                    state = State.NOP;
                 }
                 recentNumber += clickedButton.getText().toString();
                 numberView.setText(recentNumber);
@@ -145,8 +144,8 @@ public class Calculator extends Activity implements View.OnClickListener {
             secondNumber = Integer.valueOf(tempString);
         }
 
-        int result = 0;
-        switch(flag){
+        int result;
+        switch(state){
             case ADD:
                 result = Calculations.doAddition(firstNumber, secondNumber);
                 break;
@@ -162,13 +161,12 @@ public class Calculator extends Activity implements View.OnClickListener {
             default:
                 result = secondNumber;
         }
-        flag = OperationFlag.INIT;
         numberView.setText(Integer.toString(result));
     }
 
     private void makeClear() {
         numberView.setText("0");
         firstNumber = 0;
-        flag = OperationFlag.INIT;
+        state = State.INIT;
     }
 }

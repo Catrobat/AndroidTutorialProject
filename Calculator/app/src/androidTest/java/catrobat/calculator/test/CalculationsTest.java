@@ -3,7 +3,6 @@ package catrobat.calculator.test;
 import junit.framework.TestCase;
 
 import catrobat.calculator.Calculations;
-import catrobat.calculator.Calculator;
 
 /**
  * Created by stephan on 16.07.14.
